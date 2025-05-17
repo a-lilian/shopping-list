@@ -21,6 +21,15 @@ function removeListItem (event) {
 
 function addListItem(event) {
     ulSection.appendChild(buildListItem());
+
+    inputBox.value = "";
+    focus(inputBox);
 }
 
 addButton.addEventListener("click", addListItem);
+inputBox.addEventListener("keydown", function (event) {
+    if (event.key === "Enter")
+    {
+        addListItem();
+    }
+});
