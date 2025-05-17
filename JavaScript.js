@@ -4,8 +4,10 @@ const ulSection = document.querySelector("ul");
 
 function buildListItem() {
     const listItem = document.createElement("li");
+
     const removeButton = document.createElement("button");
     removeButton.textContent = "remove";
+    removeButton.addEventListener("click", removeListItem);
 
     listItem.textContent = inputBox.value + " ";
     listItem.appendChild(removeButton);
@@ -13,12 +15,12 @@ function buildListItem() {
     return listItem;
 }
 
-//function for adding list item 
+function removeListItem (event) {
+    this.parentNode.remove();
+}
+
 function addListItem(event) {
     ulSection.appendChild(buildListItem());
 }
-
-//listener for when enter is pressed in the form 
-//OR add button is pressed
 
 addButton.addEventListener("click", addListItem);
